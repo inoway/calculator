@@ -35,7 +35,9 @@
     
     if(startInput) {
         //最初の1桁目が0なら表示しない。一桁目は0を表示したくないので。
-        if(b.tag == 0) return; //ここに具体的な0が入力されたときの処理を書く。returnなら「何も」しないという処理になる。
+        //if(b.tag == 0) return; //ここに具体的な0が入力されたときの処理を書く。returnなら「何も」しないという処理になる。
+    
+        
         //新しく表示する文字列を作成
         label.text = [NSString stringWithFormat:@"%d",b.tag];
         startInput = NO;
@@ -54,8 +56,18 @@ else {
     else if (Operation == 1) {
         CurrentValue -= [label.text intValue];
 }
+    
+    else if (Operation == 2) {
+        CurrentValue *= [label.text intValue];
+    }
+    
+    else {
+        CurrentValue /= [label.text intValue];
+    }
+    
     //表示の更新
     label.text = [NSString stringWithFormat:@"%d",CurrentValue];
+    CurrentValue=0; //計算後、重複で計算することを防ぐためにCurrentValueを初期化する
     startInput = YES;
 }
 
