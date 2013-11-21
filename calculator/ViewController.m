@@ -31,7 +31,7 @@
 
 -(IBAction)NumberButtonPushed:(id)sender
 {
-    UIButton *b = (UIButton *)sender; //キャストしてUIButtonのを取り出す。
+    UIButton *b = (UIButton *)sender; //キャストしてUIButtonのを取り出す。bはButtonの意味
     
     if(startInput) {
         //最初の1桁目が0なら表示しない。一桁目は0を表示したくないので。
@@ -51,18 +51,18 @@ else {
 -(IBAction)EqualButtonPushed:(id)sender {//イコールボタンが押されたときの処理
     //直前に押された演算子で場合分け。
     if(Operation == 0) {
-        CurrentValue += [label.text intValue];
+        CurrentValue += [label.text doubleValue];
     }
     else if (Operation == 1) {
-        CurrentValue -= [label.text intValue];
+        CurrentValue -= [label.text doubleValue];
 }
     
     else if (Operation == 2) {
-        CurrentValue *= [label.text intValue];
+        CurrentValue *= [label.text doubleValue];
     }
     
     else {
-        CurrentValue /= [label.text intValue];
+        CurrentValue /= [label.text doubleValue];
     }
     
     //表示の更新
