@@ -11,7 +11,7 @@
 @interface ViewController : UIViewController {
     IBOutlet UILabel *label;
     BOOL startInput;
-    int CurrentValue;
+    double CurrentValue;
     int Operation;
 }
 - (IBAction)NumberButtonPushed:(id)sender;

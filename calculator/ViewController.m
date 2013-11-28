@@ -51,22 +51,22 @@ else {
 -(IBAction)EqualButtonPushed:(id)sender {//イコールボタンが押されたときの処理
     //直前に押された演算子で場合分け。
     if(Operation == 0) {
-        CurrentValue += [label.text doubleValue];
+        CurrentValue += [label.text intValue];
     }
     else if (Operation == 1) {
-        CurrentValue -= [label.text doubleValue];
+        CurrentValue -= [label.text intValue];
 }
     
     else if (Operation == 2) {
-        CurrentValue *= [label.text doubleValue];
+        CurrentValue *= [label.text intValue];
     }
     
     else {
-        CurrentValue /= [label.text doubleValue];
+        CurrentValue /= [label.text intValue];
     }
     
     //表示の更新
-    label.text = [NSString stringWithFormat:@"%d",CurrentValue];
+    label.text = [NSString stringWithFormat:@"%f",CurrentValue];
     CurrentValue=0; //計算後、重複で計算することを防ぐためにCurrentValueを初期化する
     startInput = YES;
 }
