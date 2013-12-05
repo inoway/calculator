@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define ADD 0
+#define SUB 1
+#define MULT 2
+#define DIV 3
+
 @interface ViewController : UIViewController {
     IBOutlet UILabel *label;
     BOOL startInput;

@@ -36,32 +36,47 @@
     if(startInput) {
         //最初の1桁目が0なら表示しない。一桁目は0を表示したくないので。
         //if(b.tag == 0) return; //ここに具体的な0が入力されたときの処理を書く。returnなら「何も」しないという処理になる。
-    
+        //if (b.tag==100) { // 小数点の処理
+            //label.text = [NSString stringWithFormat:@"0."];
+        //}
         
         //新しく表示する文字列を作成
         label.text = [NSString stringWithFormat:@"%d",b.tag];
+        
+        //数字が入力されたので、startInputをNOにして
         startInput = NO;
-    }
-else {
-    //既に表示されている文字列に連結
-    label.text = [NSString stringWithFormat:@"%@%d",label.text,b.tag];
+        
+//        isInputStarted = NO;
+    } else {
+        //既に表示されている文字列に連結
+        label.text = [NSString stringWithFormat:@"%@%d",label.text,b.tag];
     }
 }
 
+
+
+/*
+enum {
+    ADD,
+    SUB,
+}
+*/
+ 
 -(IBAction)EqualButtonPushed:(id)sender {//イコールボタンが押されたときの処理
     //直前に押された演算子で場合分け。
-    if(Operation == 0) {
+    // if(Operation == ADD) {
+    if(Operation == ADD) {//add
         CurrentValue += [label.text intValue];
     }
-    else if (Operation == 1) {
+    else if (Operation == SUB) {//sub
         CurrentValue -= [label.text intValue];
 }
     
-    else if (Operation == 2) {
+    else if (Operation == MULT) {//mult
         CurrentValue *= [label.text intValue];
     }
     
-    else {
+    else {//div
         CurrentValue /= [label.text intValue];
     }
     
