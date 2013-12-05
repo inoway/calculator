@@ -16,13 +16,13 @@
 @interface ViewController : UIViewController {
     IBOutlet UILabel *label;
     BOOL startInput;
-    double CurrentValue;
-    int Operation;
+    double currentValue;
+    int operation;
 }
-- (IBAction)NumberButtonPushed:(id)sender;
-- (IBAction)ClearButtonPushed:(id)sender;
-- (IBAction)EqualButtonPushed:(id)sender;
-- (IBAction)OpButtonPushed:(id)sende;
+- (IBAction)numberButtonPushed:(id)sender;
+- (IBAction)clearButtonPushed:(id)sender;
+- (IBAction)equalButtonPushed:(id)sender;
+- (IBAction)opButtonPushed:(id)sende;
 
 
 @end

@@ -20,7 +20,7 @@
 	// Do any additional setup after loading the view, typically from a nib
  
     startInput = YES; //startInputは押されたキーが最初の一桁か表す変数
-    CurrentValue = 0;
+    currentValue = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,7 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)NumberButtonPushed:(id)sender
+-(IBAction)numberButtonPushed:(id)sender
 {
     UIButton *b = (UIButton *)sender; //キャストしてUIButtonのを取り出す。bはButtonの意味
     
@@ -62,42 +62,42 @@ enum {
 }
 */
  
--(IBAction)EqualButtonPushed:(id)sender {//イコールボタンが押されたときの処理
+-(IBAction)equalButtonPushed:(id)sender {//イコールボタンが押されたときの処理
     //直前に押された演算子で場合分け。
     // if(Operation == ADD) {
-    if(Operation == ADD) {//add
-        CurrentValue += [label.text intValue];
+    if(operation == ADD) {//add
+        currentValue += [label.text intValue];
     }
-    else if (Operation == SUB) {//sub
-        CurrentValue -= [label.text intValue];
+    else if (operation == SUB) {//sub
+        currentValue -= [label.text intValue];
 }
     
-    else if (Operation == MULT) {//mult
-        CurrentValue *= [label.text intValue];
+    else if (operation == MULT) {//mult
+        currentValue *= [label.text intValue];
     }
     
     else {//div
-        CurrentValue /= [label.text intValue];
+        currentValue /= [label.text intValue];
     }
     
     //表示の更新
-    label.text = [NSString stringWithFormat:@"%f",CurrentValue];
-    CurrentValue=0; //計算後、重複で計算することを防ぐためにCurrentValueを初期化する
+    label.text = [NSString stringWithFormat:@"%f",currentValue];
+    currentValue=0; //計算後、重複で計算することを防ぐためにCurrentValueを初期化する
     startInput = YES;
 }
 
--(IBAction)OpButtonPushed:(id)sender {//演算子ボタンが押されたときの処理
+-(IBAction)opButtonPushed:(id)sender {//演算子ボタンが押されたときの処理
     UIButton *b = (UIButton *)sender;
     
     //現在値の保存
-    CurrentValue = [label.text intValue]; //CurrentValueは現在までの結果をint型で格納する変数
+    currentValue = [label.text intValue]; //CurrentValueは現在までの結果をint型で格納する変数
     
     //演算の保存
-    Operation = b.tag; //Operationはどの演算子が押されたのかを記憶する変数
+    operation = b.tag; //Operationはどの演算子が押されたのかを記憶する変数
     startInput = YES;
 }
 
--(IBAction)ClearButtonPushed:(id)sender {//クリアボタンが押されたときの処理
+-(IBAction)clearButtonPushed:(id)sender {//クリアボタンが押されたときの処理
  label.text = @"0";
     startInput = YES;//入力待ち受け状態にする
 }
